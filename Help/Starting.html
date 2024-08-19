@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with PyPA</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <a href="Help.html" class="return-button">Return to home</a>
+    <div class="content">
+        
+        <h1>Getting Started with PyPA</h1>
+        
+        <p>Before diving into PyPA, make sure to set up your environment:</p>
+        <ul>
+            <li>
+                <a class="highlight-green" href="InstallSQLServer.html">Install SQL Server</a>
+                - Follow this guide to install SQL Server, which is necessary for managing your databases.
+            </li>
+            <li>
+                <a class="highlight-green" href="CreateDBLocal.html">Create a Local Database</a>
+                - Set up a local database to store your application data. This step is crucial for using PyPA effectively.
+            </li>
+        </ul>
+        <p><strong>Note:</strong> Completing these steps will make the database accessible to other machines on the same VPN.</p>
+        <p>If you only need to provide access to a database on the same network, follow the instructions in <a class="highlight-green" href="ConnectionDataBase.html">Connecting to a Database</a>.</p>
+    </div>
+    
+    <div class="content2">
+        <h2>Using the Projects</h2>
+        <p>The <a class="highlight-wheat">Projects</a> button in the application bar provides access to several key features:</p>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue" href="https://code.visualstudio.com/Docs">Visual Studio Code</a>
+                - Open Visual Studio Code to write and edit your automation scripts with a powerful code editor.
+            </li>
+            <li>
+                <a class="highlight-wheat">Repository</a>
+                - Access the repository where all your created projects and scripts are stored and managed.
+            </li>
+            <li>
+                <a class="highlight-green">Run Code (Python)</a>
+                - Execute your scripts directly from the application to test and deploy your automations.
+            </li>
+            <li>
+                <a class="highlight-orange" href="https://www.drawio.com/doc">draw.io</a>
+                - Use draw.io to create and visualize diagrams and flowcharts for your automation processes.
+            </li>
+            <li>
+                <a class="highlight-red" href="https://ryven.org">Ryven</a>
+                - For a no-code solution, use Ryven, a visual programming tool for Python that offers a graphical interface for creating and running scripts.
+            </li>
+        </ul>
+        <img src="Images/Projects.png">
+    </div>
+    <div class="content">
+        <h2>Using the Control Room</h2>
+        <p>The <a class="highlight-wheat" href="ControlRoom.html">Control Room</a> is your central hub for monitoring and managing all active machines in your environment. It provides a clear overview of each machine's name, current execution status, and the time of execution.</p>
+        <p>With the Control Room, you can:</p>
+        <ul>
+            <li>Monitor the real-time status of all running machines.</li>
+            <li>Access detailed logs of each machine's execution, allowing you to trace and diagnose any issues that arise during the process.</li>
+            <li>Download execution logs for further analysis and record-keeping, ensuring that you have a complete history of operations.</li>
+        </ul>
+        <p>This tool is essential for maintaining the efficiency and reliability of your automated processes, giving you the visibility and control needed to manage your environment effectively.</p>
+        <img src="Images/ControlRoom2.png" alt="Control Room Interface">
+    </div>
+    <div class="content2">
+        <h2>Managing Servers</h2>
+        <p>The <a class="highlight-wheat">Servers</a> section provides a suite of powerful tools to manage and monitor your machines effectively. Through the <a href="ViewServer.html" style="color: aquamarine;">View Server</a> feature, you can get a real-time overview of your servers, allowing you to easily identify which ones are online or offline. This is crucial for ensuring that your services are running smoothly and efficiently.</p>
+        <p>Beyond monitoring, you can send commands directly to the servers, enabling you to install software, check file integrity, and perform various administrative tasks. These operations are seamlessly executed using the built-in command prompt interface, giving you the flexibility to execute custom commands and manage your servers remotely.</p>
+        <p>These capabilities make it easier to maintain control over your network, automate routine tasks, and ensure that your infrastructure is operating at peak performance.</p>
+        
+        <img src="Images/ViewServer2.png" alt="View Server">
+        <img src="Images/Terminal-Server.png" alt="Terminal Server">
+        
+        <p>The <a href="CreateServer.html" style="color: aquamarine;">Create Server</a> feature allows you to generate an executable file that, when run on a machine within the same network, makes it open to receiving commands and executing processes via the scheduler. This is particularly useful for automating tasks and managing distributed systems without manual intervention.</p>
+        <p><strong>Note:</strong> The machine must be pre-configured with Python installed to execute scripts that the scheduler will point to at the scheduled times.</p>
+        <p>By preparing the server with the necessary software and configurations, you can ensure that it is ready to handle automated tasks, respond to commands, and maintain continuous operation within your network. This proactive setup minimizes downtime and streamlines the management of your server infrastructure.</p>
+    </div>
+    <div class="content">
+        <h2>Configurations</h2>
+        <p>The <strong>Configurations</strong> section provides essential tools to set up and manage your application's environment effectively. Within this section, you'll find several key features:</p>
+        
+        <ul class="list-items">
+            <li>
+                <a class="highlight-green">Database</a>
+                - The <em>Database</em> option allows you to <a class="highlight-green" href="InstallSQLServer.html">install SQL Server</a>, <a class="highlight-green" href="CreateDBLocal.html">create a local</a> database on your machine (localhost), and establish <a class="highlight-green" href="ConnectionDataBase.html">connections to external databases</a>. This is the foundation for managing and storing the data that your application will utilize.
+            </li>
+            <li>
+                <a class="highlight-orange" href="Workqueue.html">Work Queue</a>
+                - The <em>Work Queue</em> feature enables you to create and manage work queues, which are essential for organizing and controlling the execution of various processes. These queues can later be monitored in the Control Room and scheduled for execution using the Scheduler tool. This ensures that all tasks are efficiently managed and executed in a timely manner.
+            </li>
+            <li>
+                <a class="highlight-red" href="Security.html">Security</a>
+                - The <em>Security</em> section is where you can store and manage encrypted passwords within the database. These encrypted credentials are securely maintained and can be used in automated processes, ensuring that your application's operations are both secure and efficient.
+            </li>
+            <li>
+                <a class="highlight-blue" href="Scheduler.html">Scheduler</a>
+                - The <em>Scheduler</em> is a powerful tool that allows you to create detailed schedules for process execution across your server machines. You can schedule tasks to run at specific times, down to the hour, minute, and second, as well as on specific days, months, and years. This level of granularity ensures that your processes are executed precisely when needed, optimizing the performance and reliability of your operations.
+            </li>
+        </ul>
+        
+        <img src="Images/Config.png" alt="Configuration Overview">
+    </div>
+    
+    
+    
+    
+</body>
+</html>

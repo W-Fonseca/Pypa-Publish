@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    <a href="Help.html" class="return-button">Return to home</a> 
+    <h1>Connection Database</h1>
+    <p>In order for the application to work with job queues, store codes and folders, and manage when a process will be executed, we need a connection to a database. So check which type of connection fits with your database.</p>
+    <p><strong>Note:</strong> Remember that for communication with other machines and Task Scheduler management, your database must be visible.</p>
+    <div class="content">
+        <h2>SQL Server (SQL Authentication)</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Data Source:</strong></a>
+                Defines the name or IP address of the SQL Server. It may include a named instance.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Initial Catalog:</strong></a>
+                Specifies the name of the database you want to connect to.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>User Id:</strong></a>
+                The username used for SQL Server authentication.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Password:</strong></a>
+                The password associated with the <strong>User Id</strong>.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>AdditionalSQL (Connection Parameters):</strong></a>
+                Additional string to allow customization of the connection with specific parameters.
+            </li>
+        </ul>
+        <img src="Images/SQL Server (SQL Authentication).png" alt="SQL Server SQL Authentication">
+        <p><strong>Usage Example:</strong> Connect to SQL Server with specific credentials, for example, in scenarios where access to SQL Server is restricted and Windows authentication cannot be used.</p>
+    </div>
+    <div class="content2">
+        <h2>SQL Server (Windows Authentication)</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Data Source:</strong></a>
+                Name or IP address of the SQL Server.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Initial Catalog:</strong></a>
+                Name of the database you want to connect to.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Integrated Security:</strong></a>
+                Indicates that the connection should be made using the Windows credentials of the user running the application.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>AdditionalSQL (Connection Parameters):</strong></a>
+                Additional string for connection customization.
+            </li>
+        </ul>
+        <img src="Images/SQL Server (Windows Authentication).png" alt="SQL Server Windows Authentication">
+        <p><strong>Usage Example:</strong> Connect to SQL Server in an environment where the user is already authenticated on the Windows domain, simplifying the authentication process and enhancing security.</p>
+    </div>
+    <div class="content">
+        <h2>Availability Group (SQL Authentication)</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Server:</strong></a>
+                Name of the SQL Server or listener associated with the availability group.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>ListenerPort:</strong></a>
+                Port used by the listener to connect to SQL Server.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Database:</strong></a>
+                Name of the database you want to connect to.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>MultiSubnetFailover:</strong></a>
+                Indicates if failover should be handled in an environment with multiple subnets. This parameter improves reconnection in high-availability environments.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>User Id:</strong></a>
+                Username for SQL authentication.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Password:</strong></a>
+                Password corresponding to the <strong>User Id</strong>.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>AdditionalSQL (Connection Parameters):</strong></a>
+                Additional string for connection customization.
+            </li>
+        </ul>
+        <img src="Images/Availability Group (SQL Authentication).png" alt="Availability Group SQL Authentication">
+        <p><strong>Usage Example:</strong> Connect to an SQL Server configured with Availability Groups using SQL authentication, in critical environments where automatic failover is essential.</p>
+    </div>
+    <div class="content2">
+        <h2>Availability Group (Windows Authentication)</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Server:</strong></a>
+                Name of the SQL Server or listener associated with the availability group.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>ListenerPort:</strong></a>
+                Port used by the listener to connect to SQL Server.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Database:</strong></a>
+                Name of the database you want to connect to.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>MultiSubnetFailover:</strong></a>
+                Indicates if failover should be handled in an environment with multiple subnets.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Integrated Security:</strong></a>
+                Connection using Windows credentials.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>AdditionalSQL (Connection Parameters):</strong></a>
+                Additional string for connection customization.
+            </li>
+        </ul>
+        <img src="Images/Availability Group (Windows Authentication).png" alt="Availability Group Windows Authentication">
+        <p><strong>Usage Example:</strong> Connect to an SQL Server with Availability Groups using Windows authentication, ideal in corporate environments where security is managed by the Windows domain.</p>
+    </div>
+    <div class="content">
+        <h2>SQL Server (Custom Connection String)</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Connection String:</strong></a>
+                Custom connection string with detailed parameters for specific needs.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Usage:</strong></a>
+                Adapt connection strings to your needs, considering options such as encryption, failover, and timeouts.
+            </li>
+        </ul>
+        <img src="Images/SQL Server (Custom Connection String).png" alt="SQL Server Custom Connection String">
+        <p><strong>Usage Example:</strong> Use a customized connection string for special cases or advanced configurations not covered by standard methods.</p>
+    </div>
+</body>
+</html>

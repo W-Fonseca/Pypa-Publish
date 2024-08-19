@@ -1,0 +1,48 @@
+﻿<Window x:Class="Terminal_Server.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Terminal_Server"
+        MouseLeftButtonDown="Click_Mover_Janela" 
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
+        Background="#FF272727"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+
+    
+    <Grid Margin="5,5,5,5">
+
+        <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <TextBlock Text="Terminal - Server" Foreground="Wheat" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Center" FontSize="22"/>
+            <Separator/>
+        </StackPanel>
+        <Grid Margin="5,45,5,5">               
+                    
+         <TextBox x:Name="TextTerminal" Foreground="#FFBDBDBD" Background="{x:Null}" BorderThickness="0" FontFamily="Consolas" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+         
+            </Grid>
+        
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Width="auto" Orientation="Horizontal">
+            <Menu VerticalAlignment="Top" Background="{x:Null}" Foreground="Wheat" HorizontalAlignment="Right" Width="auto">
+                <MenuItem x:Name="minimize" Header=" ➖ " Click="Minimize" FontSize="14" FontFamily="Segoe UI Symbol" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <MenuItem x:Name="maximize" Header=" ⧠ " Click="Maximize" FontSize="14" FontFamily="Segoe UI Symbol" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <MenuItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </MenuItem.RenderTransform>
+                </MenuItem>
+                <MenuItem x:Name="x" Header=" ❌ " Click="Close_Window" FontSize="14" FontFamily="Segoe UI Symbol" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Menu>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Database (LocalHost)</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    <a href="Help.html" class="return-button">Return to home</a> 
+    <h1>Create Database (LocalHost)</h1>
+    <div class="content">
+        <h2>What is the Database Creation Page?</h2>
+        <p>The Pypa database creation page allows you to configure a local database and open ports so that other machines on the same LAN can access it, schedule tasks, store files, and save server names.</p>
+    </div>
+    <div class="content2">
+        <h2>Features</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>StringConnection:</strong></a>
+                Field where the user enters the server connection string. Example: 'Server=localhost\SQLEXPRESS09;Database=master;Trusted_Connection=True;'.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Instance Name:</strong></a>
+                Field where the user enters the SQL Server instance name. Example: 'SQL\SQLEXPRESS09'.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>UserID:</strong></a>
+                Field where the user enters the user ID for authentication. Example: 'Admin'.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Password:</strong></a>
+                Field where the user enters the password for authentication. Example: 'Admin'.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Listener Port:</strong></a>
+                Field where the user enters the port number to be used for connections. Example: '14344'.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>"Open DataBase" Button:</strong></a>
+                Button that allows you to open the database after configuration.
+            </li>
+        </ul>
+        <img src="Images/CreateDatabaseLocal.png">
+
+        <div class="content">
+            <p>After installing <a class="highlight-blue" href="InstallSQLServer.html">SQL Server</a>,
+            you just need to copy and paste the information in red and blue.</p>
+            <p>The information in green can be customized creatively by you.</p>
+            <img decoding="async" width="110%" src="Images/Exemple.png" alt="Copy and Paste Example" />
+        </div>
+    </div>
+    <div class="content">
+        <h2>Benefits</h2>
+        <ul class="list-items">
+            <li>
+                <a class="highlight-blue"><strong>Easy Access:</strong></a>
+                Allows other machines on the same LAN to access the database to schedule tasks and store files.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Centralized Management:</strong></a>
+                Facilitates centralized management of data and tasks.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Security:</strong></a>
+                Ensures that connections are secure and authenticated.
+            </li>
+            <li>
+                <a class="highlight-blue"><strong>Efficiency:</strong></a>
+                Optimizes the configuration and management of the local database.
+            </li>
+        </ul>
+    </div>
+    <div class="content2">
+        <h2>Practical Example</h2>
+        <p>Imagine you need to set up a database to store task scheduling information. The Pypa database creation page allows you to configure the local database and open ports so that other machines on the same LAN can efficiently access and manage this information.</p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Help</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #272727;
+            margin: 20px;
+            color: wheat;
+        }
+
+        h1 {
+            color: #616060;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li::before {
+            
+            color: #007ACC;
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007ACC;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #005f99;
+        }
+
+        details {
+            margin: 10px 0;
+        }
+
+        summary {
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            list-style: none; /* Remove the default disclosure triangle */
+        }
+
+        summary::before {
+            content: "▶";
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .tree ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PyPA Help</h1>
+        <ul>
+            <div class="tree">
+                <details>
+                    <summary>Get Started</summary>
+                    <ul>
+                        <li><a href="Introduction.html">introduction</a></li>
+                        <li><a href="Starting.html">Starting</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>How to Use Project</summary>
+                    <ul>
+                        <li><a href="https://code.visualstudio.com/Docs">Visual Studio Code</a></li>
+                        <li><a href="https://www.drawio.com/doc">Draw.io</a></li>
+                        <li><a href="https://ryven.org">Ryven</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>How to Use Control Room</summary>
+                    <li><a href="ControlRoom.html">Control Room</a></li>
+                </details>
+                
+                <details>
+                    <summary>How to Use Servers</summary>
+                    <ul>
+                        <li><a href="ViewServer.html">View Servers</a></li>
+                        <li><a href="CreateServer.html">Create Server</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>How to Use Database</summary>
+                    <ul>
+                        <li><a href="InstallSQLServer.html" target="_self">Install SQL Server</a></li>
+                        <li><a href="CreateDBLocal.html" target="_self">Create Database (Localhost)</a></li>
+                        <li><a href="ConnectionDataBase.html" target="_self">Connection Database</a></li>
+                    </ul>
+                </details>
+            </div>
+            <details>
+                <summary>How to Use Work Queue</summary>
+                <li><a href="Workqueue.html">Work Queue</a></li>
+            </details>
+            <details>
+                <summary>How to Use Security</summary>
+                <li><a href="Security.html">Security</a></li>
+            </details>
+            <details>
+                <summary>How to Use Scheduler</summary>
+                <li><a href="Scheduler.html">Scheduler</a></li>
+            </details>
+            
+        </ul>
+    </div>
+</body>
+</html>
