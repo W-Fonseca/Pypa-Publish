@@ -40,7 +40,7 @@ The **Projects** button in the application bar provides access to several key fe
 - [draw.io](https://www.drawio.com/doc) - Use draw.io to create and visualize diagrams and flowcharts for your automation processes.
 - [Ryven](https://ryven.org) - For a no-code solution, use Ryven, a visual programming tool for Python that offers a graphical interface for creating and running scripts.
 
-![Projects Screenshot](Images/Projects.png)
+![Projects Screenshot](https://github.com/W-Fonseca/Pypa-Publish/blob/main/Help/Images/Projects.png)
 
 ## Using the Control Room
 
