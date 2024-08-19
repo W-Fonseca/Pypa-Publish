@@ -23,17 +23,14 @@ namespace Terminal_Server
 {
     public partial class MainWindow : Window
     {
-        ConsoleContent dc = new ConsoleContent();
+        public ConsoleContent dc = new ConsoleContent();
 
 
-        int port = {=port=};
+       int port = {=port=};
         string connectionString = @"{=ConectionString=}";
         string localIP = GetLocalIPAddress();
         string machineName = Environment.MachineName;
         private static readonly string EncryptionKey = "MyEncryptionKey123"; // Use uma chave segura
-
-
-
 
         public MainWindow()
         {
@@ -92,7 +89,11 @@ namespace Terminal_Server
             Close();
         }
 
-
+        public void reseteTextMessage()
+        {
+            TextTerminal.Text = "";
+            outputLog.Clear();
+        }
 
         public void TextMessage(string textx)
         {
@@ -408,6 +409,7 @@ namespace Terminal_Server
 
                             if (datesArray.Contains(DateTime.Now.Date) && taskTime == DateTime.Now.ToString("HH:mm:ss"))
                             {
+                                Dispatcher.Invoke(() => reseteTextMessage());
                                 if (!Directory.Exists(executionDirectory))
                                 {
                                     Directory.CreateDirectory(executionDirectory);
@@ -483,7 +485,13 @@ namespace Terminal_Server
                                         }
                                         else
                                         {
+                                            try { 
                                             runpython(name, pathprocess, workqueue);
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Dispatcher.Invoke(() => TextMessage($"Erro ao executar o python: {ex.Message}"));
+                                            }
                                             break;
                                         }
 
@@ -824,5 +832,3 @@ namespace Terminal_Server
     }
 
 }
-
-
