@@ -26,7 +26,7 @@ namespace Terminal_Server
         public ConsoleContent dc = new ConsoleContent();
 
 
-        int port = {=port=};
+             int port = {=port=};
         string connectionString = @"{=ConectionString=}";
         string localIP = GetLocalIPAddress();
         string machineName = Environment.MachineName;
@@ -105,7 +105,7 @@ namespace Terminal_Server
 
         public void reseteTextMessage()
         {
-            TextTerminal.Text = "";
+           // TextTerminal.Text = "";
             outputLog.Clear();
         }
 
@@ -115,11 +115,11 @@ namespace Terminal_Server
             {
                 Dispatcher.Invoke(() =>
                 {
-                    outputLog.AppendLine($"Message: {textx}");
+                    outputLog.AppendLine($"DateTime {DateTime.Now.ToString()} Message: {textx}");
                     outputLog.AppendLine(Environment.NewLine);
                     //Dispatcher.Invoke(() => dc.ConsoleOutput.Add(e.Data));
 
-                    TextTerminal.Text += $"Message: {textx}";
+                    TextTerminal.Text += $"DateTime {DateTime.Now.ToString()} Message: {textx}";
                     TextTerminal.Text += Environment.NewLine;
                 });
             }
@@ -131,11 +131,11 @@ namespace Terminal_Server
             {
                 Dispatcher.Invoke(() =>
                 {
-                    outputLog.AppendLine($"Error: {textx}");
+                    outputLog.AppendLine($"DateTime {DateTime.Now.ToString()} Error: {textx}");
                     outputLog.AppendLine(Environment.NewLine);
                     //Dispatcher.Invoke(() => dc.ConsoleOutput.Add(e.Data));
 
-                    TextTerminal.Text += $"Error: {textx}";
+                    TextTerminal.Text += $"DateTime {DateTime.Now.ToString()} Error: {textx}";
                     TextTerminal.Text += Environment.NewLine;
                 });
             }
@@ -148,11 +148,11 @@ namespace Terminal_Server
             {
                 Dispatcher.Invoke(() =>
                 {
-                    outputLog.AppendLine($"Message: {text}");
+                    outputLog.AppendLine($"DateTime {DateTime.Now.ToString()} Message: {text}");
                     outputLog.AppendLine(Environment.NewLine);
                     //Dispatcher.Invoke(() => dc.ConsoleOutput.Add(e.Data));
 
-                    TextTerminal.Text += $"Message: {text}";
+                    TextTerminal.Text += $"DateTime {DateTime.Now.ToString()} Message: {text}";
                     TextTerminal.Text += Environment.NewLine;
                     //Scroller.ScrollToBottom();
                 });
@@ -169,11 +169,11 @@ namespace Terminal_Server
 
                     Dispatcher.Invoke(() =>
                     {
-                        outputLog.AppendLine($"Error: {text}");
+                        outputLog.AppendLine($"DateTime {DateTime.Now.ToString()} Error: {text}");
                         outputLog.AppendLine(Environment.NewLine);
 
 
-                        TextTerminal.Text += $"Error: {text}";
+                        TextTerminal.Text += $"DateTime {DateTime.Now.ToString()} Error: {text}";
                         TextTerminal.Text += Environment.NewLine;
 
                     });
@@ -182,9 +182,9 @@ namespace Terminal_Server
                 {
                     Dispatcher.Invoke(() =>
                     {
-                        outputLog.AppendLine($"Warning: {text}");
+                        outputLog.AppendLine($"DateTime {DateTime.Now.ToString()} Warning: {text}");
                         outputLog.AppendLine(Environment.NewLine);
-                        TextTerminal.Text += $"Warning: {text}";
+                        TextTerminal.Text += $"DateTime {DateTime.Now.ToString()} Warning: {text}";
                         TextTerminal.Text += Environment.NewLine;
 
                     });
@@ -423,7 +423,7 @@ namespace Terminal_Server
                             string taskTimeWithMilliseconds = taskTime + ".5";
                             if (datesArray.Contains(DateTime.Now.Date) && taskTimeWithMilliseconds == DateTime.Now.ToString("HH:mm:ss.f"))
                             {
-                              //  Dispatcher.Invoke(() => reseteTextMessage());
+                                Dispatcher.Invoke(() => reseteTextMessage());
                                 if (!Directory.Exists(executionDirectory))
                                 {
                                     Directory.CreateDirectory(executionDirectory);
