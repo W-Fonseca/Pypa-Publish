@@ -420,8 +420,8 @@ namespace Terminal_Server
                                 .ToArray();
 
                             string taskTime = reader.GetString(2);
-
-                            if (datesArray.Contains(DateTime.Now.Date) && taskTime == DateTime.Now.ToString("HH:mm:ss"))
+                            string taskTimeWithMilliseconds = taskTime + ".5";
+                            if (datesArray.Contains(DateTime.Now.Date) && taskTimeWithMilliseconds == DateTime.Now.ToString("HH:mm:ss.f"))
                             {
                               //  Dispatcher.Invoke(() => reseteTextMessage());
                                 if (!Directory.Exists(executionDirectory))
@@ -665,9 +665,16 @@ namespace Terminal_Server
         private StringBuilder outputLog = new StringBuilder();
         private async void runpython(string nameprocess, string filename, string workqueue)
         {
-
-            InsertLogEntry(workqueue, nameprocess, "in process", DateTime.Now);
-            int id = currentIDProcess(workqueue + "_Queue") - 1;
+            int id = 0;
+            try { InsertLogEntry(workqueue, nameprocess, "in process", DateTime.Now);
+            id = currentIDProcess(workqueue + "_Queue") - 1;
+            }
+            catch(Exception ex)
+            {
+                TextMessage(ex.Message);
+            }
+            
+            
             try
             {
                 Process processo = new Process();
@@ -679,21 +686,17 @@ namespace Terminal_Server
                 processo.StartInfo.CreateNoWindow = true;
                 processo.StartInfo.StandardOutputEncoding = Encoding.ASCII;
                 processo.StartInfo.StandardErrorEncoding = Encoding.ASCII;
-                //     processo.OutputDataReceived += Process_OutputDataReceived;
-                //     processo.ErrorDataReceived += Process_ErrorDataReceived;
-
-                //     processo.Warning += Process_OutputDataReceived;
+               
 
                 processo.Start();
                 string errorss = processo.StandardError.ReadToEnd();
                 string outmessage = processo.StandardOutput.ReadToEnd();
-                //     processo.BeginOutputReadLine();
-                //     processo.BeginErrorReadLine();
+               
 
 
                 await processo.WaitForExitAsync();  // Aguarda o término do processo de forma assíncrona
 
-                // Após o processo terminar, você já terá capturado toda a saída e erro nos eventos
+               
                 if (!string.IsNullOrEmpty(errorss))  // Verifica se houve algum erro no log combinado
                 {
                     Dispatcher.Invoke(() => Process_OutputDataReceived(outmessage));
