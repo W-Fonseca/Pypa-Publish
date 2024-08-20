@@ -26,7 +26,7 @@ namespace Terminal_Server
         public ConsoleContent dc = new ConsoleContent();
 
 
-       int port = {=port=};
+        int port = {=port=};
         string connectionString = @"{=ConectionString=}";
         string localIP = GetLocalIPAddress();
         string machineName = Environment.MachineName;
@@ -52,6 +52,7 @@ namespace Terminal_Server
             {
                 TextMessage(ex.Message);
             }
+            
 
         }
 
@@ -422,7 +423,7 @@ namespace Terminal_Server
 
                             if (datesArray.Contains(DateTime.Now.Date) && taskTime == DateTime.Now.ToString("HH:mm:ss"))
                             {
-                                Dispatcher.Invoke(() => reseteTextMessage());
+                              //  Dispatcher.Invoke(() => reseteTextMessage());
                                 if (!Directory.Exists(executionDirectory))
                                 {
                                     Directory.CreateDirectory(executionDirectory);
@@ -473,10 +474,7 @@ namespace Terminal_Server
                                     {
                                         SaveFileToExecutionFolder(fileContent, objectFiles[cont]);
                                         Dispatcher.Invoke(() => TextMessage($"Arquivo {objectFiles[cont]} salvo na pasta de execução."));
-                                        while (!File.Exists(executionDirectory + "\\" + objectFiles[cont]))
-                                        {
-                                            Task.Delay(1000);
-                                        }
+                                        
 
                                     }
                                     cont++;
@@ -490,48 +488,25 @@ namespace Terminal_Server
 
                                     Dispatcher.Invoke(() => TextMessage($"Arquivo {task.Project.Trim()} salvo na pasta de execução."));
 
-                                    while (true)
+                                    try
                                     {
-                                        if (!File.Exists(executionDirectory + "\\" + task.Project.Trim()))
-                                        {
-                                            Task.Delay(1000);
-                                        }
-                                        else
-                                        {
-                                            try { 
-                                            runpython(name, pathprocess, workqueue);
-                                            }
-                                            catch (Exception ex)
-                                            {
-                                                Dispatcher.Invoke(() => TextMessage($"Erro ao executar o python: {ex.Message}"));
-                                            }
-                                            break;
-                                        }
-
+                                        runpython(name, pathprocess, workqueue);
                                     }
-
-
-
+                                    catch (Exception ex)
+                                    {
+                                        Dispatcher.Invoke(() => TextMessage($"Erro ao executar o python: {ex.Message}"));
+                                    }
                                 }
-
                             }
                         }
-
-
                     }
                     catch (Exception ex)
                     {
                         Dispatcher.Invoke(() => TextMessage($"Erro ao carregar tarefas agendadas: {ex.Message}"));
                     }
                 }
-
-
-
             }
         }
-
-
-
         private string SaveFileToExecutionFolder(byte[] fileContent, string fileName, string workqueue = null)
 
         {
@@ -593,7 +568,7 @@ namespace Terminal_Server
             {
                 string credentialName = match.Groups[1].Value;
                 var credentials = GetCredentials(credentialName);
-                                
+
                 if (credentials.HasValue)
                 {
                     var (username, password) = credentials.Value; // Desestruturando a tupla
@@ -601,7 +576,7 @@ namespace Terminal_Server
                     fileContent = fileContent.Replace(match.Value, replacementText);
 
                 }
-                
+
             }
 
             string originalConnectionString = connectionString;
@@ -630,9 +605,10 @@ namespace Terminal_Server
                 SqlCommand command = new SqlCommand(getLastIdQuery, connection);
                 connection.Open();
                 object result = command.ExecuteScalar();
-                try { 
-                int lastId = Convert.ToInt32(result);
-                return lastId + 1;
+                try
+                {
+                    int lastId = Convert.ToInt32(result);
+                    return lastId + 1;
                 }
                 catch
                 {
@@ -845,3 +821,5 @@ namespace Terminal_Server
     }
 
 }
+
+
