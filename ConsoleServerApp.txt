@@ -36,9 +36,22 @@ namespace Terminal_Server
         {
             InitializeComponent();
 
-            run();
+            try
+            {
+                run();
+            }
+            catch (Exception ex) {
+                TextMessage(ex.Message);
+            }
             Task.Delay(5000);
-            LoadScheduled();
+            try
+            {
+                LoadScheduled();
+            }
+            catch(Exception ex)
+            {
+                TextMessage(ex.Message);
+            }
 
         }
 
